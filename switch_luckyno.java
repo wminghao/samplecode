@@ -36,6 +36,12 @@ public class Solution {
 
     	//String input = "12345242";
     	String input = "5698157156";
+    	
+    	if(input == null ) {
+			System.out.println("Wrong input! input = null");
+    		return;
+    	}
+    	
     	boolean allDigits = true;
     	for(int i=0; i< input.length(); i++) {
     		char cur = input.charAt(i);
@@ -66,12 +72,33 @@ public class Solution {
     private static final int MIN_VAL = 1;
     private static final int MAX_VAL = 59;
     
+    //first sort the array, then check if it's unique or not
+    private static boolean isUnique(List<Integer> curResult) {
+    	List<Integer> newResult = new ArrayList<Integer>();
+    	newResult.addAll(curResult);
+    	Collections.sort(newResult);
+    	
+    	boolean bIsUnique = true;
+    	int prev = -1; //b/c all positive integer, not possible to be the same
+    	for( int res: newResult) {
+    		if( res == prev) {
+    			bIsUnique = false;
+    			System.out.println("redundant number="+res);
+    			break;
+    		}
+    		prev = res;
+		}
+    	return bIsUnique;
+    }
+    
     
     private static void calcResult(String input, int index, List<List<Integer>> results, List<Integer> curResult) {
     	int strLen = input.length();
     	if(index >= strLen) {
     		if(  curResult!= null && curResult.size() == TOTAL_NUMBERS ) {
-    			results.add(curResult);	
+    			if( isUnique(curResult) ) {
+    				results.add(curResult);	
+    			}
     		}
     		return;
     	} else if( curResult!= null && curResult.size() == TOTAL_NUMBERS && index < strLen) {
