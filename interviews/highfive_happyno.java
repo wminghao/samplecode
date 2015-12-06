@@ -6,6 +6,9 @@ import java.util.*;
  * named Solution.
  *
  * If you need more classes, simply define them inline.
+ *
+ * Optimization: Dynamic programming, reuse the previous result
+ * i.e., 17->10->1 (reuse 10)
  */
 
 class Solution {

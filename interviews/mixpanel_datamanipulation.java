@@ -3,10 +3,20 @@ import java.util.*;
 //import org.json.*;
 
 /*
- * To execute Java, please define "static void main" on a class
- * named Solution.
- *
- * If you need more classes, simply define them inline.
+ * This is a common problem,
+ * 1. in E-commerce websites, search can return lots of results. Add many filters to refine the results.
+ * 2. in P-interest style websites, main page can return lots of results, add many filters to refine the interested boards and pins
+ * ------>K-D trees.
+ * Improved algorithm, for each keyword, build a hashtable where each node is a balanced binary tree(Sorted by item_id).
+ *                     
+ * Where there is ONE filter, look up the hashtable and find the tree in that hashtable and return.
+ * Where there is TWO filters, look up 2 hashtables and find 2 trees in that hashtable and return.
+ *                             From the small tree, look up the entries from the big tree.
+ * Where there is N filters, look up n hashtables and find n trees in that hashtable and return.
+ *                             From the smallest tree, look up all the entries from the biggest tree.
+ *                             From the result, look up all the entries from the NEXT biggest tree.
+ *                             Until all trees are traversed.
+ * The result is sorted by item_id, we can also sort the result based on time, popularities, promotion, scores, etc.
  */
 
 class Solution {
