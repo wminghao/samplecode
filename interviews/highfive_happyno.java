@@ -68,7 +68,7 @@ Enjoy your interview!
 
 
 Happy numbers
-Find all of the happy numbers from 1 to 100
+Find all of the happy numbers from 1 to n. i.e., n=100
 Take the sum of the squares of all digits of a given number
 Continue until either the sum equals 1, or the sum equals a number that has been seen previously (loop)
 
