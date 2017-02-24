@@ -16,6 +16,6 @@ void onRequestReceived(req) {
 	discardRequest(req);
     } else {
 	forwardRequest(req);
-	allowance -= 1.0;
+	quota -= 1.0;
     }
 }
